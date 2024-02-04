@@ -1,11 +1,13 @@
 class Solution {
     public int commonFactors(int a, int b) {
-        int s = 0;
-        int n = Math.max(a, b);
-        for (int i = 1; i <= n; i++) {
-            if (a % i == 0 && b % i == 0)
-                s++;
+        int max=Math.max(a,b);
+        int count=0;
+        for(int i=1;i<=max;i++)
+        {
+            if(a%i==0 && b%i==0)
+            count++;
         }
-        return s;
+        return count;
     }
 }
+
