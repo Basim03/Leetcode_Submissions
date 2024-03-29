@@ -1,14 +1,16 @@
 class Solution {
-    public int differenceOfSums(int n, int m) {
-        int sum1=0,sum2=0;
-    for(int i=1;i<=n;i++)
-    {
-        if(i%m==0)
-        sum2+=i;
-        else if(i%m!=0)
-        sum1+=i;
+  public int differenceOfSums(int n, int m) {
+    int difference = 0;
+    
+    for (int i = 1; i <= n; i++) {
+        if (i % m == 0) {
+            difference -= i;  // Subtracting i if divisible by m
+        } else {
+            difference += i;  // Adding i if not divisible by m
+        }
     }
-    System.out.println(sum1+" "+sum2);
-    return sum1-sum2;
+    
+    return difference;
+
     }
 }
