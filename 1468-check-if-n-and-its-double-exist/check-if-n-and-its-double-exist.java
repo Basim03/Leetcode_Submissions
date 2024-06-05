@@ -7,8 +7,8 @@ class Solution {
             {
                 if(i!=j && arr[i]==arr[j]*2)
                 {
-                ans=true;
-                break;
+               return true;
+            
                 }
 
             }
