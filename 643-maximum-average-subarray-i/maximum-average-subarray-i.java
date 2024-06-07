@@ -14,9 +14,7 @@ class Solution {
 
             // Calculate the average and update maxAverage if it's the highest we've seen
             double currentAverage = (double) currentSum / k;
-            if (currentAverage > maxAverage) {
-                maxAverage = currentAverage;
-            }
+           maxAverage=Math.max(maxAverage,currentAverage);
         }
 
         return maxAverage;
