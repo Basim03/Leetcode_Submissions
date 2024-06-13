@@ -4,16 +4,25 @@ class Solution {
         int num=0;
         for(int i=0;i<operations.length;i++)
         {
-            if(operations[i].equals("++X") || operations[i].equals("X++"))
+            switch(operations[i])
             {
-                num++;
-            }
-            else 
-            {
-                num--;
-            }
-            System.out.println(num);
+            case "X++":
+            ++num;
+            break;
+             case "++X":
+            num++;
+            break;
+            case "X--":
+            num--;
+            break;
+            case "--X":
+            --num;
+            break;
+           
+
         }
+        }
+
         return num;
     }
 }
