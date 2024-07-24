@@ -9,41 +9,42 @@
  *     TreeNode(int val, TreeNode left, TreeNode right) {
  *         this.val = val;
  *         this.left = left;
- *         this.right = right; 
+ *         this.right = right;
  *     }
  * }
  */
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
+               List<Integer> result=new ArrayList<>();
 
-        if (root == null) {
+        if(root==null)
+        {
             return result;
         }
-
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-
-        while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-            for (int i = 0; i < levelSize; i++) {
-                TreeNode currentNode = queue.poll();
-
-                // If this is the last node in the current level, add it to the result
-                if (i == levelSize - 1) {
+        Queue<TreeNode> queue=new LinkedList<>();
+queue.offer(root);
+ while(!queue.isEmpty())
+ {
+    int levelSize=queue.size();
+    List<Integer> ans =new ArrayList<>(levelSize);
+for(int i=0;i<levelSize;i++)
+{
+TreeNode currentNode=queue.poll();
+   if (i == levelSize - 1) {
                     result.add(currentNode.val);
                 }
+if(currentNode.left!=null)
+{
+    queue.offer(currentNode.left);
+}
+if(currentNode.right!=null)
+{
+    // result.add(currentNode.val);
+    queue.offer(currentNode.right);
+}
+}
 
-                // Add child nodes to the queue
-                if (currentNode.left != null) {
-                    queue.offer(currentNode.left);
-                }
-                if (currentNode.right != null) {
-                    queue.offer(currentNode.right);
-                }
-            }
-        }
-
-        return result;
+ }
+ return result; 
     }
 }
