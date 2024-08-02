@@ -7,6 +7,7 @@ class Solution {
 if(nums[i]==nums[i+1])
 {
     count=nums[i];
+    break;
 }
 
        }
