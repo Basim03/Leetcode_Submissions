@@ -2,7 +2,7 @@ class Solution {
     public int smallestEqual(int[] nums) {
         int ans=Integer.MAX_VALUE;
         int current=0;
-        int arr[]=new int[nums.length];
+        // int arr[]=new int[nums.length];
         for(int i=0;i<nums.length;i++)
         {
            current=i%10;
