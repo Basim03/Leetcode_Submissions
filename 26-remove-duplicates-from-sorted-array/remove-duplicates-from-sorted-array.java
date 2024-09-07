@@ -1,33 +1,16 @@
 class Solution {
    public int removeDuplicates(int[] nums) {
-    int n=nums.length;
+       if (nums.length == 0) return 0;
 
-    Set<Integer> a = new HashSet<Integer>();
-    int count=0;
-    int j=0;
-    for(int i=0;i<nums.length;i++)
-    {
-      a.add(nums[i]);
+       int j = 0;  // Pointer for the position of the last unique element
 
-    }
-    int nums1[]=new int[a.size()];
+       for (int i = 1; i < nums.length; i++) {
+           if (nums[i] != nums[j]) { // If current element is unique
+               j++;                 // Move the `j` pointer
+               nums[j] = nums[i];    // Update the position with the unique element
+           }
+       }
 
-  // for(int i=0;i<a.size();i++)
-  // {
-  //   int element=a.remove(i);
-  //   System.out.println(elements);
-  //     }
-  for(int element: a)
-  {
-    nums1[j]=element;
-    j++;
-  }
-  Arrays.sort(nums1);
-  for(int i=0;i<a.size();i++)
-    {
-     nums[i]=nums1[i];
-
-    }
-  return a.size();
+       return j + 1;  // Return the length of the array with unique elements
    }
 }
