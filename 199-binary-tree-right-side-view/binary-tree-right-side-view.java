@@ -27,9 +27,9 @@ queue.offer(root);
 // ans.add(root.val);
 while(queue.isEmpty()==false)
 {
-         curr=0;
     int LevelSize=queue.size();
-
+List<Integer> result=new ArrayList<>(LevelSize);
+         curr=0;
    for(int i=0;i<LevelSize;i++){
     
     // List<Integer>
@@ -45,8 +45,10 @@ while(queue.isEmpty()==false)
         queue.offer(current.right);
        
     }
+    result.add(current.val);
+    
    }
-   ans.add(curr);
+   ans.add(result.get(result.size()-1));
 }
 return ans;
         } 
