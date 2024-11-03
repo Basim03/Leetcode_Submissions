@@ -1,26 +1,25 @@
 class Solution {
-    public boolean check(int node,int [][]graph,int color[])
+    public boolean check(int node,int col,int [][]graph,int color[])
 {
-    Queue<Integer> q=new LinkedList<>();
-color[node]=0;
-q.add(node);
-while(!q.isEmpty())
-{
-    int curr=q.peek();
-    q.remove();
-    for(int i=0;i<graph[curr].length;i++)
+  
+color[node]=col;
+
+            
+
+ 
+ 
+    for(int i=0;i<graph[node].length;i++)
     {
-        int adj=graph[curr][i];
+        int adj=graph[node][i];
         if(color[adj]==-1)
         {
-            color[adj]=1-color[curr];
-            q.add(adj);
-           
+           if(check(adj,1-col,graph,color)==false)
+           return false;
         }
-         else if(color[curr]==color[adj])
+         else if(color[adj]==col)
             return false;
     }
-}
+
 return true;
 
 }
@@ -34,7 +33,7 @@ return true;
       {
         if(colors[i]==-1)
         {
-            if(check(i,graph,colors)==false)
+            if(check(i,0,graph,colors)==false)
             return false;
             
         }
