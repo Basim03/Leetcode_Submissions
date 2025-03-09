@@ -1,22 +1,24 @@
 class Solution {
-    public void sortColors(int[] array) {
-    // int n = array.length;
-    //     boolean swapped;
-    //     do {
-    //         swapped = false;
-    //         for (int i = 1; i < n; i++) {
-    //             if (array[i - 1] > array[i]) {
-    //                 // Swap array[i-1] and array[i]
-    //                 int temp = array[i - 1];
-    //                 array[i - 1] = array[i];
-    //                 array[i] = temp;
-    //                 // Set swapped flag to true
-    //                 swapped = true;
-    //             }
-    //         }
-    //         // Decrease the size of the unsorted portion of the array
-    //         n--;
-    //     } while (swapped);
-    Arrays.sort(array);
+    public void sortColors(int[] nums) {
+        // int min=0;
+        for(int i=0;i<nums.length-1;i++)
+        {
+            int min=i;
+            for(int j=i+1;j<nums.length;j++)
+            {
+
+                if(nums[min]>nums[j])
+                {
+                   min=j;
+                }
+            }
+            swap(nums,i,min);
+        }
+    }
+    public static void swap(int[] nums,int a, int b)
+    {
+      int temp=nums[a];
+      nums[a]=nums[b];
+      nums[b]=temp;
     }
 }
