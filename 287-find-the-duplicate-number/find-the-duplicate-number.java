@@ -1,21 +1,35 @@
 class Solution {
     public int findDuplicate(int[] nums) {
-        // Phase 1: Finding the intersection point
-        int slow = nums[0];
-        int fast = nums[0];
-        
-        do {
-            slow = nums[slow];
-            fast = nums[nums[fast]];
-        } while (slow != fast);
-        
-        // Phase 2: Finding the entrance to the cycle
-        int slow2 = nums[0];
-        while (slow2 != slow) {
-            slow = nums[slow];
-            slow2 = nums[slow2];
+        int i=0;
+        int ans=0;
+        while(i!=nums.length)
+        {
+            int correct=nums[i]-1;
+            if(nums[i]!=nums[correct])
+            {
+                swap(nums,i,correct);
+            }
+            else
+            {
+            i++;
+            }
         }
-        
-        return slow;
+        System.out.println(Arrays.toString(nums));
+        for( i=0;i<nums.length;i++)
+        {
+            
+            if(i+1!=nums[i])
+            {
+            ans=nums[i];
+            break;
+            }
+        }
+        return ans;
+    }
+    public static void swap(int [] nums,int a,int b){
+        int temp=nums[a];
+        nums[a]=nums[b];
+        nums[b]=temp;
+
     }
 }
